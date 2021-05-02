@@ -1,10 +1,10 @@
 import * as React from "react";
 import { StyleSheet } from "react-native";
-import { FontAwesome } from "@expo/vector-icons";
 import { APP_COLORS } from "../colors";
 import BulletInfo from "../components/BulletInfo";
 
 import { Text, View } from "../components/Themed";
+import Icon from "../components/Icon";
 
 export default function TabOneScreen() {
   return (
@@ -39,103 +39,28 @@ export default function TabOneScreen() {
         {/* ===================================================== */}
         {/* MAKE A NEW COMPONENT FOR ICON PANEL */}
         {/* ===================================================== */}
-        <View
-          style={{
-            height: "50%",
-            justifyContent: "space-between",
-            width: "100%",
-            marginBottom: 50,
-          }}
-        >
-          <View
-            style={{
-              flexDirection: "row",
-              justifyContent: "space-between",
-              width: "70%",
-              marginLeft: 50,
-            }}
-          >
-            <View
-              style={{
-                backgroundColor: "#5493B4",
-                borderRadius: 100,
-                height: 50,
-                width: 50,
-                alignItems: "center",
-                justifyContent: "center",
-              }}
-            >
-              <FontAwesome name="play-circle" color="white" size={30} />
-            </View>
-            <View
-              style={{
-                backgroundColor: "#BF8E6E",
-                borderRadius: 100,
-                height: 50,
-                width: 50,
-                alignItems: "center",
-                justifyContent: "center",
-              }}
-            >
-              <FontAwesome name="eye-slash" color="white" size={30} />
-            </View>
-            <View
-              style={{
-                backgroundColor: "#755ED4",
-                borderRadius: 100,
-                height: 50,
-                width: 50,
-                alignItems: "center",
-                justifyContent: "center",
-              }}
-            >
-              <FontAwesome name="share" color="white" size={30} />
-            </View>
+        <View style={styles.iconContainer}>
+          <View style={styles.iconRow}>
+            <Icon
+              type="play-circle"
+              backgroundColor="#5493B4"
+              text="Play Again"
+            />
+            <Icon
+              type="eye-slash"
+              backgroundColor="#BF8E6E"
+              text="Review Answer"
+            />
+            <Icon type="share" backgroundColor="#755ED4" text="Share Score" />
           </View>
-          <View
-            style={{
-              flexDirection: "row",
-              justifyContent: "space-between",
-              width: "70%",
-              marginLeft: 50,
-            }}
-          >
-            <View
-              style={{
-                backgroundColor: "#0099E8",
-                borderRadius: 100,
-                height: 50,
-                width: 50,
-                alignItems: "center",
-                justifyContent: "center",
-              }}
-            >
-              <FontAwesome name="file-pdf-o" color="white" size={30} />
-            </View>
-            <View
-              style={{
-                backgroundColor: "#BF70A0",
-                borderRadius: 100,
-                height: 50,
-                width: 50,
-                alignItems: "center",
-                justifyContent: "center",
-              }}
-            >
-              <FontAwesome name="home" color="white" size={30} />
-            </View>
-            <View
-              style={{
-                backgroundColor: "#71758D",
-                borderRadius: 100,
-                height: 50,
-                width: 50,
-                alignItems: "center",
-                justifyContent: "center",
-              }}
-            >
-              <FontAwesome name="star-o" color="white" size={30} />
-            </View>
+          <View style={styles.iconRow}>
+            <Icon
+              type="file-pdf-o"
+              backgroundColor="#0099E8"
+              text="Generate PDF"
+            />
+            <Icon type="home" backgroundColor="#BF70A0" text="Home" />
+            <Icon type="star-o" backgroundColor="#71758D" text="LeaderBoard" />
           </View>
         </View>
         {/* ============================================================ */}
@@ -218,5 +143,16 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "space-between",
     alignItems: "flex-end",
+  },
+  iconContainer: {
+    height: "50%",
+    justifyContent: "space-between",
+    width: "100%",
+    marginBottom: 50,
+  },
+  iconRow: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    width: "85%",
   },
 });
